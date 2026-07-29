@@ -1,0 +1,284 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: My Collection
+meta:
+  id: wrk_0b3d52f3255b4d2d93b3c4d5aeba7ef9
+  created: 1731857100285
+  modified: 1731857100285
+  description: ""
+collection:
+  - name: Rocket Log
+    meta:
+      id: fld_551353d304144014a145bd17f0c0b1f8
+      created: 1783378195854
+      modified: 1783378327547
+      sortKey: -1783378195854
+      description: ""
+    children:
+      - name: Users
+        meta:
+          id: fld_41ace549a9c1440eb8cb61813e4e5275
+          created: 1783378207715
+          modified: 1783378207715
+          sortKey: -1783378207715
+          description: ""
+        children:
+          - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE }}"
+            name: Create
+            meta:
+              id: req_a93c09636b734c839ebf7f57fbca68f4
+              created: 1783378212286
+              modified: 1783638205857
+              isPrivate: false
+              description: ""
+              sortKey: -1783378212286
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"name": "Mateus Castro",
+                	"email": "mateus@email.com",
+                	"password": "123456"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Sessions
+        meta:
+          id: fld_89b2dcc12d9342209770a763b68a30e4
+          created: 1783378738967
+          modified: 1783378788128
+          sortKey: -1783378738967
+          description: ""
+        children:
+          - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE }}"
+            name: Create
+            meta:
+              id: req_d9e6821d677e4cb0bc5b6ce0a80beacc
+              created: 1783378766974
+              modified: 1783638295033
+              isPrivate: false
+              description: ""
+              sortKey: -1783378766974
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"email": "lucas@email.com",
+                	"password": "123456"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        environment:
+          "":
+            RESOURCE: sessions
+      - name: Deliveries
+        meta:
+          id: fld_5329b920fcd344e190a937096a865686
+          created: 1783378975735
+          modified: 1783379549120
+          sortKey: -1783378975735
+          description: ""
+        children:
+          - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE }}"
+            name: Create
+            meta:
+              id: req_c25430f674bd44f6ad19ec9ea9e98ec3
+              created: 1783379028758
+              modified: 1783638718650
+              isPrivate: false
+              description: ""
+              sortKey: -1783379028758
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"user_id": "42366d6a-8fc8-4c46-9c88-3564d0f69034",
+                	"description": "Mouse"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{% response 'body', 'req_d9e6821d677e4cb0bc5b6ce0a80beacc',
+                'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE }}"
+            name: Index
+            meta:
+              id: req_95fe3af376f542ac8c93620a7717b0a9
+              created: 1783635625488
+              modified: 1783635687619
+              isPrivate: false
+              description: ""
+              sortKey: -1783635625488
+            method: GET
+            authentication:
+              type: bearer
+              token: "{% response 'body', 'req_d9e6821d677e4cb0bc5b6ce0a80beacc',
+                'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE
+              }}/578d12f6-89ae-41c1-bc74-05546fb66f21/status"
+            name: Status Update
+            meta:
+              id: req_c7bffd2467b6473da111bfa9db96fc37
+              created: 1783636070430
+              modified: 1783638871479
+              isPrivate: false
+              description: ""
+              sortKey: -1783636070430
+            method: PATCH
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"status":"delivered"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{% response 'body', 'req_d9e6821d677e4cb0bc5b6ce0a80beacc',
+                'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        environment:
+          "":
+            RESOURCE: deliveries
+      - name: Delivery Logs
+        meta:
+          id: fld_8a77566b8cb54cdeb0e8ab610ed387c0
+          created: 1783636557915
+          modified: 1783636618585
+          sortKey: -1783636557915
+          description: ""
+        children:
+          - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE }}"
+            name: Create
+            meta:
+              id: req_3819c6f74454410092bd383b4de76663
+              created: 1783636565952
+              modified: 1783638790346
+              isPrivate: false
+              description: ""
+              sortKey: -1783636565952
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"delivery_id":"578d12f6-89ae-41c1-bc74-05546fb66f21",
+                	"description":"Pedido coletado!"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            authentication:
+              type: bearer
+              token: "{% response 'body', 'req_d9e6821d677e4cb0bc5b6ce0a80beacc',
+                'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _[''].BASE_URL }}/{{ _[''].RESOURCE
+              }}/578d12f6-89ae-41c1-bc74-05546fb66f21/show"
+            name: Index
+            meta:
+              id: req_74387728094044509c737da5a7fdfb45
+              created: 1783638086861
+              modified: 1783638755082
+              isPrivate: false
+              description: ""
+              sortKey: -1783638086861
+            method: GET
+            authentication:
+              type: bearer
+              token: "{% response 'body', 'req_d9e6821d677e4cb0bc5b6ce0a80beacc',
+                'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        environment:
+          "":
+            RESOURCE: delivery-logs
+    environment:
+      "":
+        RESOURCE: users
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_b6d0daaae3214fca08fc89179e60b23083782a56
+    created: 1731857100289
+    modified: 1731857100289
+environments:
+  name: Base Environment
+  meta:
+    id: env_b6d0daaae3214fca08fc89179e60b23083782a56
+    created: 1731857100287
+    modified: 1731857100287
+    isPrivate: false
+  subEnvironments:
+    - name: New Environment
+      meta:
+        id: env_0a9abb08966d4fd8b5acc44e8436779e
+        created: 1783378235130
+        modified: 1783378342393
+        isPrivate: false
+        sortKey: 1783378235130
+      data:
+        "":
+          BASE_URL: localhost:3333
+      color: "#22aa4b"
