@@ -58,7 +58,7 @@ class DeliveryLogsController {
     })
 
     if(!delivery) {
-      throw new AppError("Delivery not found", 404);
+      return res.status(404).json({ message: "Delivery not found" });
     }
 
     if(req.user?.role === "customer" && req.user.id !== delivery?.userId) {
